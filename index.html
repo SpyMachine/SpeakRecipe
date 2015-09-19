@@ -1,17 +1,36 @@
 <html>
-
- 	<form action="demo_form.asp">
-  		URL: <input type="text" name="url" id="url_input"><br>
+<body>
+ 	<form action="demo_form.asp" >
+  		URL: <input type="text" name="url" id="url_input" ><br>
 	</form> 
 
-	<button onclick="loadPages()">Click Me</button>
+	<button style="display:inline" onclick="loadPages()">Click Me</button>
 
 <iframe src="" id="myFrame" width="1000" marginwidth="0" height="800" marginheight="0" align="middle" scrolling="auto"></iframe>
+<input type='hidden' id='query'/>
+<script src='js/jquery-1.11.3.min.js'></script>
+
+<!--<script src='js/frameParser.js'></script>-->
 <script>
     function loadPages(){
         var url = document.getElementById("url_input");
-        document.getElementById('myFrame').setAttribute('src', url.value);
+        
+		document.getElementById('myFrame').setAttribute('src', url.value);
+		
+		$.ajax({
+			method: "POST",
+			url: 'getDOM.php',
+			data: {
+				url: url.value
+			},
+			success: function(response){
+				console.log(JSON.parse(response));
+			}
+		});		
     }
+	
 </script>
+</body>
+
 
 </html>
