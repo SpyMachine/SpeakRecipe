@@ -1,0 +1,17 @@
+<html>
+
+ 	<form action="demo_form.asp">
+  		URL: <input type="text" name="url" id="url_input"><br>
+	</form> 
+
+	<button onclick="loadPages()">Click Me</button>
+
+<iframe src="" id="myFrame" width="1000" marginwidth="0" height="800" marginheight="0" align="middle" scrolling="auto"></iframe>
+<script>
+    function loadPages(){
+        var url = document.getElementById("url_input");
+        document.getElementById('myFrame').setAttribute('src', url.value);
+    }
+</script>
+
+</html>
