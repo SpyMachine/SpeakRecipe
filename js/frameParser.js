@@ -10,6 +10,7 @@ function iframeRef( frameRef ) {
 document.getElementById('myFrame').onload = function() {	
 	var thedom = iframeRef(document.getElementById('myFrame'));	
 	parse(thedom);
+	startVoice();
 };
 
 //parse through the dom for ingredients and steps
