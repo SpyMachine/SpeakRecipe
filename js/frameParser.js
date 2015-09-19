@@ -11,6 +11,7 @@ function iframeRef( frameRef ) {
 document.getElementById('myFrame').onload = function() {	
 	thedom = null;
 	thedom = iframeRef(document.getElementById('myFrame'));	
+	console.log(thedom);
 	parse(thedom);
 	startVoice();
 };
@@ -100,7 +101,6 @@ function setIngredientColors(idx){
 
 function loadPages(){
 	var url = document.getElementById("url_input");
-	alert('sup');
 	$.ajax({
 		method: "POST",
 		url: 'getDOM.php',
