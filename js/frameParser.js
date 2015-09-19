@@ -35,6 +35,13 @@ function parse(thedom){
 	
 	var ilist = document.getElementById("ilist");
 	var slist = document.getElementById("slist");
+	while(ilist.hasChildNodes()){
+		ilist.removeChild(ilist.firstChild);
+	}
+	while(slist.hasChildNodes()){
+		slist.removeChild(slist.firstChild);
+	}	
+	
 	var li;
 	
 	var listParent = document.createElement('ul');
@@ -60,6 +67,19 @@ function parse(thedom){
 		
 	console.log(INGREDIENTS);
 	console.log(STEPS);
+}
+
+function setStepColors(idx){
+	var slist = document.getElementById("slist").firstChild.getElementsByTagName('li');
+	for(var i=0; i<slist.length; i++){
+		slist[i].style.color = (i==idx ? "green" : "grey");
+	}
+}
+function setIngredientColors(idx){
+	var ilist = document.getElementById("ilist").firstChild.getElementsByTagName('li');
+	for(var i=0; i<ilist.length; i++){
+		ilist[i].style.color = (i==idx ? "green" : "grey");
+	}
 }
 
 function loadPages(){
