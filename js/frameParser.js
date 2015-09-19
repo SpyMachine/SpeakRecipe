@@ -60,6 +60,7 @@ function parse(thedom){
 	var listParent = document.createElement('ul');
 		listParent.appendChild(document.createTextNode('List of ingredients:'));
 	for (var i = 0; i<INGREDIENTS.length;i++){
+		if(INGREDIENTS[i].trim()=="") continue;
 		li = document.createElement('li');
 			li.style.color='grey';
 			li.appendChild(document.createTextNode(INGREDIENTS[i]));
