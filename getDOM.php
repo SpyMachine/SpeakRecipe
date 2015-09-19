@@ -1,6 +1,5 @@
 <?php
 $dom = file_get_contents($_POST['url']);
-var_dump($dom);
 //$dom = json_encode($dom);
 //echo $dom;
 

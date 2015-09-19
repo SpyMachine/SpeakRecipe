@@ -111,7 +111,7 @@ function loadPages(){
 			document.getElementById('myFrame').setAttribute('src', 'files/thisdom.html');
 		},
 		error: function(){
-			alert('OH NO OH GOD ERROR');
+			alert('An error occured :(');
 		}
 	});		
 }
