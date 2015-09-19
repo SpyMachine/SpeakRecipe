@@ -32,6 +32,31 @@ function parse(thedom){
 			STEPS.push(thisstep);
 	}
 	
+	var ilist = document.getElementById("ilist");
+	var slist = document.getElementById("slist");
+	var li;
+	
+	var listParent = document.createElement('ul');
+		listParent.appendChild(document.createTextNode('List of ingredients:'));
+	for (var i = 0; i<INGREDIENTS.length;i++){
+		li = document.createElement('li');
+			li.style.color='grey';
+			li.appendChild(document.createTextNode(INGREDIENTS[i]));
+		listParent.appendChild(li);
+	}
+	ilist.appendChild(listParent);
+	
+	listParent = document.createElement('ol');
+		listParent.appendChild(document.createTextNode('Instructions:'));
+	for (var i = 0; i<STEPS.length;i++){
+		if(STEPS[i].trim()=="") continue;
+		li = document.createElement('li');
+			li.style.color='grey';
+			li.appendChild(document.createTextNode(STEPS[i]));
+		listParent.appendChild(li);
+	}
+	slist.appendChild(listParent);
+		
 	console.log(INGREDIENTS);
 	console.log(STEPS);
 }
