@@ -31,6 +31,9 @@ function parse(thedom){
 			thisstep = stepparents[i].innerText;
 			STEPS.push(thisstep);
 	}
+	
+	console.log(INGREDIENTS);
+	console.log(STEPS);
 }
 
 function loadPages(){
