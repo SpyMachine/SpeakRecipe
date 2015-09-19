@@ -1,4 +1,5 @@
 var STEPS = [], INGREDIENTS = [];
+var thedom;
 
 function iframeRef( frameRef ) {
     return frameRef.contentWindow
@@ -8,7 +9,8 @@ function iframeRef( frameRef ) {
 
 //Access the DOM of the loaded iframe
 document.getElementById('myFrame').onload = function() {	
-	var thedom = iframeRef(document.getElementById('myFrame'));	
+	thedom = null;
+	thedom = iframeRef(document.getElementById('myFrame'));	
 	parse(thedom);
 	startVoice();
 };
@@ -98,7 +100,7 @@ function setIngredientColors(idx){
 
 function loadPages(){
 	var url = document.getElementById("url_input");
-	
+	alert('sup');
 	$.ajax({
 		method: "POST",
 		url: 'getDOM.php',
@@ -107,6 +109,9 @@ function loadPages(){
 		},
 		success: function(response){
 			document.getElementById('myFrame').setAttribute('src', 'files/thisdom.html');
+		},
+		error: function(){
+			alert('OH NO OH GOD ERROR');
 		}
 	});		
 }
