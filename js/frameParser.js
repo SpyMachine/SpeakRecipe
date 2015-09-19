@@ -110,3 +110,5 @@ function loadPages(){
 		}
 	});		
 }
+
+document.getElementById('submitButton').onclick = function(){ loadPages(); };
