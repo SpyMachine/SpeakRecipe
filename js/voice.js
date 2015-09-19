@@ -18,6 +18,7 @@ var startVoice = function() {
     var nextIngredient = function() {
         su.text = INGREDIENTS[ingredientCount];
         speechSynthesis.speak(su);
+        setIngredientColors(ingredientCount);
         ingredientCount++;
     }
 
@@ -41,6 +42,7 @@ var startVoice = function() {
     var nextStep = function() {
         su.text = STEPS[stepCount];
         speechSynthesis.speak(su);
+        setStepColors(stepCount);
         stepCount++;
     }
 
