@@ -21,6 +21,9 @@ var startVoice = function() {
         speechSynthesis.speak(su);
         setIngredientColors(ingredientCount);
         ingredientCount++;
+        if (ingredientCount == INGREDIENTS.length-1) {
+        	ingredientCount = 0;
+        }
     }
 
     var repeatIngredient = function() {
@@ -45,6 +48,9 @@ var startVoice = function() {
         speechSynthesis.speak(su);
         setStepColors(stepCount);
         stepCount++;
+        if (stepCount == STEPS.length-1) {
+        	stepCount = 0;
+        }
     }
 
     var repeatStep = function() {
