@@ -42,7 +42,20 @@ function parse(thedom){
 		slist.removeChild(slist.firstChild);
 	}	
 	
-	var li;
+	var title,img,li;
+	title=thedom.getElementsByClassName('recipe-summary__h1')[0].innerText;
+	var toprow = document.getElementById('toprow');
+	var header = document.createElement('h1');
+		header.appendChild(document.createTextNode(title));
+		header.className = 'text-center';
+	toprow.insertBefore(header, toprow.firstChild);
+	
+	img = thedom.getElementsByClassName('rec-photo')[0].src;
+	
+	ourimg = document.createElement('img');
+		ourimg.src = img;
+		ourimg.style.width = '500px';
+	document.getElementById('picture').appendChild(ourimg);
 	
 	var listParent = document.createElement('ul');
 		listParent.appendChild(document.createTextNode('List of ingredients:'));
