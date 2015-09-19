@@ -4,6 +4,7 @@ var startVoice = function() {
     var stepCount = 0;
 
     var su = new SpeechSynthesisUtterance();
+    su.lang = "en-US";
 
     var howMuch = function(item) {
         su.text = "Please say that again";
