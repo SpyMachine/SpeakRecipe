@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "Sous Chef",
+  "description": "This extension parses an allrecipes page, simplifies it and communicates with the user via voice.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "sous_chef.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/"
+  ]
+}

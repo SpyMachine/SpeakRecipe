@@ -70,12 +70,24 @@ var startVoice = function() {
             repeatStep();
     }
 
+    var firstIngredient = function() {
+        ingredientCount = 0;
+        nextIngredient();
+    }
+
+    var firstStep = function() {
+        stepCount = 0;
+        nextStep();
+    }
+
     document.getElementById("nextIngButton").onclick = function() { nextIngredient(); }
     document.getElementById("repeatIngButton").onclick = function() { repeatIngredient(); }
     document.getElementById("lastIngButton").onclick = function() { lastIngredient(); }
 	document.getElementById("nextStepButton").onclick = function() { nextStep(); }
     document.getElementById("repeatStepButton").onclick = function() { repeatStep(); }
     document.getElementById("lastStepButton").onclick = function() { lastStep(); }
+    document.getElementById("firstStepButton").onclick = function() { firstStep(); }
+    document.getElementById("firstIngredientButton").onclick = function() { firstIngredient(); }
     document.getElementById("howMuchButton").onclick = function() { howMuch(document.getElementById("item_input").value); }
 
 	if (annyang) {
@@ -87,7 +99,9 @@ var startVoice = function() {
       		'last ingredient': lastIngredient,
       		'next step': nextStep,
         	'repeat step': repeatStep,
-        	'last step': lastStep
+        	'last step': lastStep,
+            'first step': firstStep,
+            'first ingredient': firstIngredient
       	}
 	}
 
