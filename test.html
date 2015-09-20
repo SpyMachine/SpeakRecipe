@@ -1,0 +1,89 @@
+// Include annyang from a CDN service or from your own server.
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/1.4.0/annyang.min.js"></script>
+ 
+<script>
+
+    var ingrediantCount = 0;
+    var stepCount = 0;
+
+    var testIngrediants = ["2 cups of sugar", "4 eggs", "2 cups of flour"];
+    var testSteps = ["Preheat oven to 400 degrees", "Put sugar into bowl", "Crack eggs and put them in the bowl", "Put the flour in last and mix it all up", "Bake for 20 minutes"];
+
+    var su = new SpeechSynthesisUtterance();
+    su.lang = "en-GB";
+    su.text = "Hello World";
+
+    var howMuch = function(item) {
+        su.text = "Please say that again";
+        for (var i = 0; i < testIngrediants.length; i++)
+        {
+            if(testIngrediants[i].indexOf(item) > -1)
+                su.text = testIngrediants[i];
+        }
+        speechSynthesis.speak(su);
+    }
+    
+    var nextIngrediant = function() {
+        su.text = testIngrediants[ingrediantCount];
+        speechSynthesis.speak(su);
+        ingrediantCount++;
+    }
+
+    var repeatIngrediant = function() {
+        if(ingrediantCount > 0)
+            ingrediantCount--;
+        nextIngrediant();
+    }
+
+    var nextStep = function() {
+        su.text = testSteps[stepCount];
+        speechSynthesis.speak(su);
+        stepCount++;
+    }
+
+    var repeatStep = function() {
+        if(stepCount > 0)
+            stepCount--;
+        nextStep();
+    }
+
+    var lastStep = function() {
+        if(stepCount > 1)
+        {
+            stepCount--;
+            stepCount--;
+            nextStep();
+        }
+        else if (stepCount == 1)
+            repeatStep();
+    }
+
+    var hello = function() {
+        speechSynthesis.speak(su);
+    }
+
+     // check if speech recognition is supported
+    if (annyang) {
+ 
+    // Define your commands
+    var commands = {
+
+        'hello': hello,
+        'how many *item': howMuch,
+        'how much *item': howMuch,
+        'next ingrediant': nextIngrediant,
+        'repeat ingrediant': repeatIngrediant,
+        'next step': nextStep,
+        'repeat step': repeatStep,
+        'last step': lastStep
+
+    };
+ 
+    // Use addCommands API to add commands to annyang
+    annyang.addCommands(commands);
+ 
+    // Start listening. You call this right here or do it later on some event like button click
+    //annyang.start();
+
+    }
+</script>
