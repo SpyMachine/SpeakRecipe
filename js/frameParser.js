@@ -1,6 +1,14 @@
 var STEPS = [], INGREDIENTS = [];
 var thedom;
 
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    vars[key] = value;
+    });
+    return vars;
+}
+
 function iframeRef( frameRef ) {
     return frameRef.contentWindow
         ? frameRef.contentWindow.document
@@ -117,3 +125,10 @@ function loadPages(){
 }
 
 document.getElementById('submitButton').onclick = function(){ loadPages(); };
+
+var url = getUrlVars()["url"];
+if (url)
+{
+	document.getElementById("url_input").value = url;
+	loadPages();
+}
