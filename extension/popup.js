@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var url = "";
         getCurrentTabUrl(function(url)
           {
-            window.open("https://192.168.43.186/SpeakRecipe/?url=".concat(url));
+            window.open("https://www.souschef.tk/SousChef/?url=".concat(url));
           });        
     });
 });
